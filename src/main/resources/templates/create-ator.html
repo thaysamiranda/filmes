@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inserir atores</title>
+</head>
+<body>
+<form action="#" th:action="@{/save-ator}" th:object="${ator}" method="post">
+    <table>
+        <thead>
+        <tr>
+            <th>Nome</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input name="nome" th:field="*{nome}"/>
+                <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <fieldset>
+        <input type="submit" id="submitButton" th:value="Salvar">
+        <input type="reset" id="resetButton" th:value="Resetar">
+    </fieldset>
+</form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Adicionar Filme</title>
+</head>
+<body>
+<form action="#" th:action="@{/save}" th:object="${filme}" method="post">
+    <table>
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Gênero</th>
+            <th>Ano de Lançamento</th>
+            <th>Atores</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input name="nome" th:field="*{nome}"/>
+                    <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+                </td>
+                <td><input name="genero" th:field="*{genero}"/>
+                    <div th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}"></div>
+                </td>
+                <td><input name="ano" th:field="*{ano}"/>
+                    <div th:if="${#fields.hasErrors('ano')}" th:errors="*{ano}"></div>
+                </td>
+                <td>
+                    <div th:each="ator, atorStat: *{listaDeAtores}">
+                        <select th:field="*{listaDeAtores[__${atorStat.index}__]}">
+                            <option th:each="ator: ${atores}" th:value="${ator.id}" th:text="${ator.nome}">
+                            </option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <fieldset>
+        <input type="submit" id="submitButton" th:value="Salvar">
+        <input type="reset" id="resetButton" th:value="Resetar">
+    </fieldset>
+</form>
+</body>
+</html>

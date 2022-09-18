@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Filmes</title>
+</head>
+<body>
+<h1>Lista de filmes</h1>
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Gênero</th>
+        <th>Ano de Lançamento</th>
+        <th>Atores</th>
+    </tr>
+    <tr>
+    <tr th:each="rem : ${filmes}">
+        <th>
+        <td><span name="nome" th:text="${rem.nome}"></span></td>
+        <td><span name="genero" th:text="${rem.genero}"></span></td>
+        <td><span name="ano" th:text="${rem.ano}"></span></td>
+        <td><span name="atores" th:each="ator : ${rem.listaDeAtores}" th:text="${rem.ator}"></span></td>
+        </th>
+    </tr>
+</table>
+</body>
+</html>
