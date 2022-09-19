@@ -35,7 +35,7 @@ public class AtorController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Ator>> listarAtors() {
+    public ResponseEntity<List<Ator>> listarAtores() {
         List<Ator> listaAtores = AtorService.listarAtores();
         return new ResponseEntity<>(listaAtores, HttpStatus.OK);
     }

@@ -21,7 +21,7 @@ public class Ator {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String ator;
+    private String nome;
 
 
 }

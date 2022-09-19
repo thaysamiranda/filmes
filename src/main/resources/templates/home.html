@@ -22,7 +22,7 @@
         <td><span name="nome" th:text="${rem.nome}"></span></td>
         <td><span name="genero" th:text="${rem.genero}"></span></td>
         <td><span name="ano" th:text="${rem.ano}"></span></td>
-        <td><span name="atores" th:each="ator : ${rem.listaDeAtores}" th:text="${rem.ator}"></span></td>
+        <td><span name="atores" th:each="ator : ${rem.listaDeAtores}" th:text="${ator.nome}"></span></td>
         </th>
     </tr>
 </table>

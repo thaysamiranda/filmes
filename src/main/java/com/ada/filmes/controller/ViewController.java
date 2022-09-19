@@ -41,7 +41,7 @@ public class ViewController {
     }
 
     @GetMapping("/create-ator")
-    public String createComposto(Model model) {
+    public String createAtor(Model model) {
         model.addAttribute("ator", new Ator());
         return "create-ator";
     }

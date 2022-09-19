@@ -21,9 +21,7 @@ public class AtoresControllerTest {
     @Test
     public void testInserePorApi() {
         Ator ator = Ator.builder()
-                .ator("Sam Worthington")
-                .ator("Zoë Saldaña")
-                .ator("Sigourney Weaver")
+                .nome("Sam Worthington")
                 .build();
 
 
@@ -32,7 +30,7 @@ public class AtoresControllerTest {
                         ator, Ator.class);
 
         Assertions.assertEquals(HttpStatus.CREATED, filmeResposta.getStatusCode());
-        Assertions.assertEquals("Sam Worthington", filmeResposta.getBody().getAtor());
+        Assertions.assertEquals("Sam Worthington", filmeResposta.getBody().getNome());
 
     }
 }

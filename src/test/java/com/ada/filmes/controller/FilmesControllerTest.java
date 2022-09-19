@@ -11,6 +11,7 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -24,24 +25,30 @@ public class FilmesControllerTest {
 
     @Test
     public void testAdicionaFilme () {
-        List<String> list = List.of("aaa","bbb","ccc");
-        System.out.println(list);
+        List<Ator> atores = new ArrayList<Ator>();
+
+        atores.add(new Ator(1L, "Bruno"));
+        atores.add(new Ator(2L, "Camila"));
+        atores.add(new Ator(3L, "Sofia"));
+
         Filme filme = Filme.builder()
                .nome("Avatar")
                .genero("Aventura")
                .ano("2009")
-               .listaDeAtores(List)
+               //listaDeAtores(atores)
                .build();
 
        ResponseEntity<Filme> filmeResposta = this.testRestTemplate
                 .postForEntity("http://localhost:" + port + "/filmes",
                         filme, Filme.class);
 
+
+
+
         Assertions.assertEquals(HttpStatus.CREATED, filmeResposta.getStatusCode());
         Assertions.assertEquals("Avatar", filmeResposta.getBody().getNome());
         Assertions.assertEquals("Aventura", filmeResposta.getBody().getGenero());
         Assertions.assertEquals("2009", filmeResposta.getBody().getAno());
-        Assertions.assertEquals("aaa","bbb","ccc", filmeResposta.getBody().getListaDeAtores());
     }
 
 }

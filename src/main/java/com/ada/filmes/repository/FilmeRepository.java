@@ -7,11 +7,5 @@ import java.util.List;
 
 public interface FilmeRepository extends JpaRepository<Filme, Long> {
 
-    List<Filme> buscaFilmePorGenero(String genero);
+   }
 
-    Filme buscaFilmePorNome(String nome);
-
-    List<Filme> buscaFilmePorAnoDeLancamento(String ano);
-
-    List<Filme> buscaFilmePorAtor(String ator);
-}
